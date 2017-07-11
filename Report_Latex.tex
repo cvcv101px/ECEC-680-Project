@@ -1,0 +1,214 @@
+\documentclass[12pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[parfill]{parskip}
+\usepackage{verbatim}
+
+\title{
+\includegraphics[width = 6in]{download.png} \\
+\vspace*{1in}
+\textbf{Early Stage Embryo Development based Prediction }}
+\author{Xiao Peng\\
+		\vspace*{0.5in} \\
+		Electrical and Computer Engineering\\
+        \textbf{Drexel University}\\
+        Philadelphia, Pennsylvania
+       } \date{\today}
+%--------------------Make usable space all of page
+\setlength{\oddsidemargin}{0in} \setlength{\evensidemargin}{0in}
+\setlength{\topmargin}{0in}     \setlength{\headsep}{-.25in}
+\setlength{\textwidth}{6.5in}   \setlength{\textheight}{8.5in}
+%--------------------Indention
+\setlength{\parindent}{1cm}
+%--------------------Line Spacing
+\linespread{1.25}
+
+\begin{document}
+%--------------------Title Page
+\maketitle
+%--------------------Begin Outline
+
+\newpage
+\begin{abstract}
+
+\qquad The idea of the project is to compare the features in early stage embryo division and obtain the effect of those different information on later development. Even though the embryo division happens in similar pattern, there can be still differences between different embryos. These features can be division time, relative size and shape, the clearness of embryos and so on. The difference in features could potentially affect the growth of embryos and by studying and analyzing them, the development can be predicted.
+
+\end{abstract}
+
+\newpage \section{Introduction}
+    
+\qquad "An embryo is a multicellular diploid eukaryote in an early stage of embryogenesis, or development. In general, in organisms that reproduce sexually, an embryo develops from a zygote, the single cell resulting from the fertilization of the female egg cell by the male sperm cell." Embryo has the ability to divide into cells that contribute to different parts of organism and have different functionality. Study the division during the early stage of embryo can help researchers understand its mechanism and functionality. Current researches are more focus on biological or medical studies and very few researchers worked on image processing on embryo data. But based on the result from other kinds of cell studies, using image processing provides a very good and new direction for extracting information and understanding the techniques behind the cells. Therefore, this design is aiming to build a well-thought program that is able to extract the information from the raw data image. \\
+
+\noindent \qquad \textit{MATLAB} has a very large database of built-in algorithms for image processing and computer vision applications. It also allows the designers test the algorithms immediately without recompilation and both the command line or the editor can execute and see the results instantly. Since \textit{MATLAB} is in the desktop environment, it allows the designers to work interactively with the data and helps to keep track of the files and variables. Overall, \textit{MATLAB} can perform a good analysis on image data and it is easy to study and develop. \\
+
+\noindent \qquad By designing image processing program for the embryo data set, the researchers would able to access information from the visual and spatial aspects. Combined with the studies on biological and medical stand points, the researchers can generate a solid and comprehensive model of the cells and take advantages to study deeper into the cells.
+
+\newpage \section{Literature Review}
+
+\subsection{Non-invasive imaging of human embryos before embryonic genome activation predicts development to the blastocyst stage}
+
+\qquad The paper is mainly about based on the studying of preimplantation human embryo development to predict the blastocyst stage. And by measuring three dynamic, noninvasive imaging parameters, the prediction accuracy can be greater than 93\%. The paper does not pay a lot of attention on imaging techniques but works more with the embryo changes during a certain period of time. But the paper still provides a direction of how image processing would works with human embryo. It shows an example on detecting the embryo division period and how this is going to affect the blastocyst stage later. And this is by far the closest work on preimplantation human embryo related to what I am intended to do but there are still a lot of unknown method and challenges.
+
+\subsection{Dynamic Blastmere Behavior Reflects Humans Embryo Pliody by the Four-Cell Stage}
+
+\qquad In this article, Chavez et al take image processing to a whole new level beyond the typical non-invasive time lapsing imaging process to discover the three dynamic cell cycle parameters.  Apparently, the three cell predictive parameters encompass the time of the initial cytokines, the synchronicity in the appearance of the third and fourth blastomeres, as well as the duration from the 2-to-3 stage. While these parameters are common in the noninvasive time-lapse imaging, especially when the incidence of embryonic aneuploidy hits a high of 50-80\%, the authors took the study further by combining imaging and karyoptic prior to embryonic genome activation. The authors used a cryopreserved set of embryos to obtain an IVF-like environment, a necessary design to the determination of the relationship between the ploidy and cell cycle parameters. Eventually, 53 of 75 embryos advanced beyond the zygot state, proving that human embryos are aneuploid. \\
+
+\noindent \qquad The article also sheds light on the differences between the types of errors in aneuploid embryo, specifically meiotic and mitotic errors. Apparently, the 4-cell embryos have two distinct features: they have indistinguishable aneuploidies in the four blastomeres, individually inherited meiotic errors, and they are made of chromosome compositions amid blastomeres when they incur mitotic errors.  Hence, the authors found that meiotic errors are more frequent than mitotic ones where the study exhibited 20\% of the latter and a 50\% of the former. This means that most chromosomal errors in the four-cell stage are often mitotic. In real life, such embryos contract down syndrome while some are incompatible with birth.\\
+
+\noindent \qquad Lastly, the article takes human embryo development to a new level where instead of relying on fragmentation alone, a method rife with interpretation variability and frequent changes on fragmentation prototypes, it opted for an automatic fragmentation detector. The authors used various method, such as embryo culture and thawing, sourcing samples and procurement, parameter analysis and time-lapse imaging, and fluorescent in situ hybridization (11). \\
+
+\noindent \qquad The study proves that computer-assisted image analysis is reliable because it offers an objective, reliable, and quantitative measure of fragmentation in the study of patient embryos. 
+
+\subsection{Human Pre-Implantation Embryo Development}
+
+\qquad Despite advancements in the development of mammalian embryos, its challenges cannot go unmentioned. The study has been rife with numerous setbacks ranging from species-distinct differences, epigenetic modification patterns, and difficulties in establishing the timing the primary wave of gene activation to gene expression patterns. However, Niakan et al. take the study to a whole new level by introducing genomic molecular and non-invasive imaging techniques to boost the comprehension of human development. Precisely, the authors shed light on the concepts of human pre-implantation embryo advancement and how further studies on the same can improve ART. \\
+
+\noindent \qquad The article also reflects on the differences between mouse and human embryos and specifically highlights the importance of hECS as a model of human development. Despite its previous setbacks, such as bias regarding differentiation potential and the limited comprehension of key signals, which tend to be different from cues in other creatures, recent development proves that the technique responds equally to BMP signaling. Besides, it can separate in cells that are similar to extraembryonic mesoderm, which means that it is refractory to trophoblast distinction. \\
+
+\noindent \qquad Current advancement in human embryo studies continues to incline to the concepts of image processing given that programming and reprogramming now characterize them. For instance, if hECS can not reverse development commitment, then it can decipher the logic behind extreme human embryo development because it is efficient in mouse embryo development. Notably, when the human ICM cell experiences a lineage restriction, it resembles that of a mouse, especially the post-implantation epiblast cells in their response to distinction promoting signals and molecular features. \\
+
+\newpage \section{Design and Analysis}
+
+\qquad The embryo data set includes $1,440$ $2,560 \times 1,920$ pixels images and each image contains three embryos that were healthy and developing. The original images are all in gray-scale and the pixel intensities are close in most of the part which means it is hard to extract clear boundaries. Therefore, before starting on finding the boundaries, image pre-processing is necessary. 
+
+\subsection{Pre-processing}
+	
+\noindent \qquad The original images are cropped manually into each pieces with each output image only has one embryo inside. Since all the images have relatively close pixel intensities, one \textit{MATLAB} function called "adapthisteq" is used to enhance the contrast of the image. The function transforms the values using contrast-limited adaptive histogram equalization (CLAHE). The parameter "NumTiles" specifies the number of tiles by row and column and "ClipLimit" specifies the contrast enhancement limit, from $0$ to $1$. This gets the pixels with high intensities become even higher and reduce the low pixel intensities lower. After the function is applied, the pixel intensities separated further and cell boundaries are clearer, shown in Figure 1.(b).\\
+
+\begin{verbatim}
+Enhanced = adapthisteq(grd, 'NumTiles', [2 2], 'ClipLimit', 0.001);
+\end{verbatim}
+
+\noindent \qquad With contrast enhanced images, the boundaries should be clearer and easier to be extracted. However, the embryo cells are larger than other cells and in order to keep its functionality, most of the dye selections are not allowed. Then, some parts of the images still have unclear boundaries, even the pre-processing is done nicely. So, using different filters or \textit{MATLAB} built-in functions could only extract part of the boundaries. Among different methods, taking the gradient magnitude using function called "imgradient" provided the best results, shown in Figure 1.(c). \\
+
+\noindent \qquad The gradient magnitude images are then used to generate a rough cell shape using convex hull function, and in this design, it is \textit{MATLAB} built-in function "bwconvhull". The function returns a convex hull image from binary image but the boundary of the convex hull is smooth and does not precisely follow the edge in the original image, shown in Figure 1.(f). These convex hull images are not good enough to be used to separate the cells inside the embryo if there are more than one cells. More further detailing is needed and then, the images should be ready to be processed to generate a shape for next step, segmentation.
+
+\begin{figure}[h!]
+	\centering
+    \begin{subfigure}[b]{0.25\textwidth}
+    	\includegraphics[width = \textwidth]{original.png}
+        \caption{Original Image}
+        \label{fig:original}
+	\end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+    	\includegraphics[width = \textwidth]{enhanced.png}
+        \caption{Contrast Enhanced}
+        \label{fig:enhanced}
+	\end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+    	\includegraphics[width = \textwidth]{imgradient.png}
+        \caption{Gradient Image}
+        \label{fig:gradient}
+	\end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+    	\includegraphics[width = \textwidth]{threshold.png}
+        \caption{Threshold-ed Image}
+        \label{fig:Threshold}
+	\end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+    	\includegraphics[width = \textwidth]{bw.png}
+        \caption{Black \& White Image}
+        \label{fig:bw}
+	\end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+    	\includegraphics[width = \textwidth]{convhull.png}
+        \caption{Convex Hull}
+        \label{fig:convhull}
+	\end{subfigure}
+    \caption{Image Pre-processing Steps}\label{fig:Progress}
+\end{figure}
+
+\subsection{Segmentation}
+
+\qquad In order to have more detailed edge on convex hull images, the convex hull images can be combined with the threshold-ed black-white images, for example in Figure 1.(e). And the thresholding method is carefully adjusted in order to be used for different images. \\
+
+\begin{verbatim}
+Gmag_back = Gmag;
+Gmag(Gmag(:) < 150) = 0;
+Gmag_back(Gmag_back(:) < 150) = 0;
+Gmag_back = medfilt2(Gmag_back);
+Gmag = bwareaopen(Gmag, 20);
+CH = bwconvhull(Gmag, 'union');
+CH(Gmag > 0) = 0;
+CH = medfilt2(CH);
+CH = bwareaopen(CH, 60);
+\end{verbatim}
+
+\noindent \qquad The result images have more detailed boundaries but the actual sizes of the cells shrunk a little. Based on the image in Figure 2.(a), the result of applying distance transform and watershed is quite good. The method of distance transform is using the euclidean distance and it correctly separated the two cells in one embryo. Even though the method still detect some noise as a small cell, this mistake can be removed by controlling the size of the cells. In Figure 2.(c), the watershed result indicates the two cells clearly.
+
+\begin{figure}[h!]
+	\centering
+    \begin{subfigure}[b]{0.25\textwidth}
+    	\includegraphics[width = \textwidth]{before.png}
+        \caption{Convex Hull}
+        \label{fig:convhull}
+	\end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+    	\includegraphics[width = \textwidth]{bwdist.png}
+        \caption{Distance Map}
+        \label{fig:bwdist}
+	\end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+    	\includegraphics[width = \textwidth]{watershed.png}
+        \caption{Watershed Image}
+        \label{fig:watershed}
+	\end{subfigure}
+    \caption{Image Segmentation Steps}\label{fig:Progress}
+\end{figure}
+
+\noindent \qquad After combining the boundaries with the original image, the results are shown in Figure 3. This design worked for most of the single cell embryo and several frames with two cells in the embryo without overlapping. Once the the embryo divides into more cells and they are overlapping one on others, watershed is not able to detect the correct boundaries for all the cells inside the embryo. \\
+
+\begin{verbatim}
+bw = ~CH; bw = bwareaopen(bw, 120);
+bw = imfill(~bw);
+[D, IDX] = bwdist(~bw, 'euclidean');
+D = -D; D(~bw) = -Inf;
+L = watershed(D);
+rgb = label2rgb(L,'jet',[.5 .5 .5]);
+watershed_bd = bwboundaries(L, 4, 'noholes');
+\end{verbatim}
+
+\begin{figure}[h!]
+	\centering
+    \begin{subfigure}[b]{0.4\textwidth}
+    	\includegraphics[width = \textwidth]{twocells.png}
+        \caption{Result image w/ two cells}
+        \label{fig:twocells}
+	\end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    	\includegraphics[width = \textwidth]{output2.png}
+        \caption{Result image w/ one cell}
+        \label{fig:onecell}
+	\end{subfigure}
+    \caption{Result images}\label{fig:result}
+\end{figure}
+
+\noindent \qquad At this point, the design is not capable to process all the image data, there are some adjustment needed to ensure its compatibility. Furthermore, in order to solve the overlaps on cells, new method needs to be discovered. Ellipses fitting can be one solution but it may sacrifice the accuracy on the cell boundaries. 
+
+\newpage \section{Conclusion}
+
+\qquad Using \textit{MATLAB} to analyze image data is easy but fundamental. At the point, the design is not completed yet, there are still rooms for adjustments and improvements. But it is surely provided a lot of imaging knowledge based on using \textit{MATLAB} and other related tools and programs. Image process is not an easy and one time job that will be the solution for all the problem. It requires well-thought design flow and long time adjustment. With well organized code, one set of program can be used for all the images and output detailed data on each features. \\
+
+\noindent \qquad The image processing takes a lot of time and tries to adjust the right parameters that fits to all the images. However, sometimes there is no one solution for all the data. For example, the embryo in the middle of the original images is more ellipse shape with overlapping, it is more suitable for ellipse fitting after finding the relative clear boundaries. Once the proper methods are discovered, applying them on the images can generate useful information that can bed used to analyze the development of the embryo. \\
+
+\noindent \qquad In the further work, the design should be able to work on all three embryo in the original images and even more embryo images taken by same team and same microscope. Also, the design will focus on segmenting even more cells in one embryo throughout a long period of time. Then collecting features and information for further analysis. And also the comparison between different embryo cells can provide more data on both biological and medical researches. \\
+
+\newpage \section{Reference}
+
+\hspace{1 mm} [1] Wong, Connie C et al. "Non-Invasive Imaging Of Human Embryos Before Embryonic Genome Activation Predicts Development To The Blastocyst Stage". Nat Biotechnol 28.10 (2010): 1115-1121. Web. \\
+
+\noindent \hspace{1 mm} [2] Niakan, K. K. et al. "Human Pre-Implantation Embryo Development". Development 139.5 (2012): 829-841. Web. \\
+
+\noindent \hspace{1 mm} [3] Chavez, Shawn L. et al. "Dynamic Blastomere Behaviour Reflects Human Embryo Ploidy By The Four-Cell Stage". Nature Communications 3 (2012): 1251. Web.
+
+\noindent \hspace{1 mm} [4] "Embryo". Wikipedia. N.p., 2016. Web. 15 Mar. 2016.
+
+\noindent \hspace{1 mm} [5] "Image Processing Toolbox - MATLAB". Mathworks.com. N.p., 2016. Web. 15 Mar. 2016.
+
+\end{document}
